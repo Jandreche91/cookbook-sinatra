@@ -1,0 +1,18 @@
+<h1>The sad moment when you decide yo let your recipes vanish into the void :-( </h1>
+
+<h2>Please select the recipe you want to destroy:</h2>
+
+<form method="post" action="/deleting">
+
+  <% @recipes.each_with_index do |recipe, index|%>
+  <input type="radio" name="user_option" value=<%=index%>> <%= recipe.name%><br>
+
+  <%end%>
+
+  <br>
+  <br>
+  <br>
+
+  <input type="submit" class="btn btn-primary">
+
+</form>

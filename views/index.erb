@@ -3,8 +3,44 @@
 
 <h2>Here is the list of recipes currently stored in our database:</h2>
 
+<table class="List_of_ingredients">
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Done?</th>
+    <th>Prep time</th>
+    <% @recipes.each_with_index do |recipe, index|%>
+    <tr>
+      <td><%= index + 1%></td>
+      <td><%= recipe.name%></td>
+      <td><%= recipe.description%></td>
+      <td><%= recipe.done == 'true' ? 'Yes' : 'Not yet!'%></td>
+      <td><%=recipe.prep_time%></td>
+    </tr>
+
+    <% end %>
+  </tr>
+
+</table>
+<br>
+<br>
+<a href="/new_recipe" class="btn btn-primary">Add a new recipe!</a>
+<br>
+<br>
+<a href="/delete" class="btn btn-primary">Delete a recipe from the cookbook :-( </a>
 
 
 
 
-<p><%= Time.now %></p>
+
+
+
+
+
+
+
+
+
+
+
