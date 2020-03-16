@@ -1,0 +1,47 @@
+
+
+<h1>Hello!</h1>
+
+<h2>These are the most relevant results from your search:</h2>
+
+<table class="List_of_ingredients">
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Prep time</th>
+    <th>Difficulty</th>
+    <% @results.each_with_index do |recipe, index|%>
+    <tr>
+      <td><%= index + 1%></td>
+      <td><%= recipe.name.capitalize%></td>
+      <td><%= recipe.description%></td>
+      <td><%=recipe.prep_time%></td>
+      <td><%=recipe.difficulty.capitalize%></td>
+    </tr>
+
+    <% end %>
+  </tr>
+  </form>
+
+  <h2>Which of these would you like to add? </h2>
+  <form method = "post" action="/add_from_web">
+
+      <% @results.each_with_index do |recipe, index|%>
+
+      <input required type="radio" name="user_option" value=<%=index%>> <%= recipe.name%><br>
+
+  <%end%>
+
+  <br>
+  <br>
+  <br>
+
+  <input type="submit" class="btn btn-primary" value ="add to your collection :-)">
+
+</table>
+
+
+
+
+
